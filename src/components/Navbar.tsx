@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Menu, X, GraduationCap, Phone, Mail } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Cpu, Zap, Wifi } from 'lucide-react';
 import { Button } from './ui/button';
+import { cn } from '@/lib/utils';
 import logo from '@/assets/logo.png';
 
 const Navbar = () => {
@@ -31,87 +32,88 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top Contact Bar */}
-      <div className="hidden lg:block bg-primary text-white py-2">
-        <div className="container mx-auto px-4 flex justify-between items-center text-sm">
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-2">
-              <Phone size={16} />
-              <span>+91 98765 43210</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Mail size={16} />
-              <span>info@iattechnologies.com</span>
-            </div>
-          </div>
-          <div className="flex items-center space-x-2">
-            <GraduationCap size={16} />
-            <span>1500+ Students Placed</span>
-          </div>
+      {/* Top Contact Bar - Hidden on large screens */}
+      <div className="bg-gradient-neon text-background px-4 py-2 text-sm lg:hidden">
+        <div className="flex justify-between items-center max-w-7xl mx-auto">
+          <span className="flex items-center gap-1">
+            <Zap size={14} />
+            +91 98765 43210
+          </span>
+          <span className="flex items-center gap-1">
+            <Cpu size={14} />
+            info@iattechnologies.com
+          </span>
+          <span className="flex items-center gap-1">
+            <Wifi size={14} />
+            100% Neural Network
+          </span>
         </div>
       </div>
 
-      {/* Main Navbar */}
+      {/* Main Navigation */}
       <motion.nav
+        className={cn(
+          "sticky top-0 z-50 w-full border-b border-border/20 transition-all duration-300",
+          scrolled 
+            ? "glass neon-glow" 
+            : "bg-background/20 backdrop-blur-sm"
+        )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 lg:top-10 w-full z-50 transition-all duration-300 ${
-          scrolled
-            ? 'glass backdrop-blur-xl border-b border-white/20'
-            : 'bg-transparent'
-        }`}
+        transition={{ duration: 0.5 }}
       >
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 lg:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
-              <img src={logo} alt="IAT Technologies" className="h-10 w-10" />
-              <div className="hidden sm:block">
-                <h1 className="text-xl font-bold gradient-text">IAT Technologies</h1>
-                <p className="text-xs text-muted-foreground">Educate • Innovate • Empower</p>
-              </div>
+              <img 
+                src={logo} 
+                alt="IAT Technologies" 
+                className="h-10 w-10 object-contain neon-glow rounded-lg"
+              />
+              <span className="font-bold text-xl gradient-text font-orbitron">
+                IAT Technologies
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-2">
               {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 ${
-                    isActive(item.href)
-                      ? 'text-primary'
-                      : 'text-foreground hover:text-primary'
-                  }`}
-                >
-                  {item.name}
-                  {isActive(item.href) && (
-                    <motion.div
-                      layoutId="activeTab"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                    />
-                  )}
-                </Link>
+                <div key={item.name} className="relative">
+                  <Link
+                    to={item.href}
+                    className={cn(
+                      "relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 font-inter",
+                      isActive(item.href)
+                        ? "text-primary neon-glow-cyan bg-primary/10"
+                        : "text-foreground hover:text-primary hover:shadow-neon-orange hover:bg-primary/5"
+                    )}
+                  >
+                    {item.name}
+                    {isActive(item.href) && (
+                      <motion.div
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-neon"
+                        layoutId="activeTab"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, type: "spring" }}
+                      />
+                    )}
+                  </Link>
+                </div>
               ))}
             </div>
 
             {/* CTA Button & Mobile Menu */}
             <div className="flex items-center space-x-4">
-              <Button 
-                variant="hero" 
-                size="sm"
-                className="hidden md:inline-flex"
-                asChild
-              >
-                <Link to="/contact">Get Started</Link>
+              <Button variant="glow" size="sm" className="hidden md:flex font-orbitron">
+                Get Started
               </Button>
 
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden p-2 rounded-md text-foreground hover:text-primary hover:bg-accent"
+                className="lg:hidden p-2 rounded-md text-foreground hover:text-primary hover:bg-primary/5 transition-all duration-300"
               >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
@@ -120,41 +122,50 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu */}
-        <motion.div
-          initial={false}
-          animate={isOpen ? "open" : "closed"}
-          variants={{
-            open: { opacity: 1, height: "auto" },
-            closed: { opacity: 0, height: 0 }
-          }}
-          className="lg:hidden overflow-hidden glass backdrop-blur-xl border-t border-white/20"
-        >
-          <div className="px-4 py-6 space-y-4">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                onClick={() => setIsOpen(false)}
-                className={`block px-3 py-2 text-base font-medium rounded-md transition-colors ${
-                  isActive(item.href)
-                    ? 'bg-primary text-white'
-                    : 'text-foreground hover:text-primary hover:bg-accent'
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <Button 
-              variant="hero" 
-              className="w-full mt-4"
-              asChild
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="lg:hidden absolute top-full left-0 right-0 glass neon-glow border-b border-primary/20"
+              initial={{ opacity: 0, height: 0, y: -20 }}
+              animate={{ opacity: 1, height: "auto", y: 0 }}
+              exit={{ opacity: 0, height: 0, y: -20 }}
+              transition={{ duration: 0.4, type: "spring" }}
             >
-              <Link to="/contact" onClick={() => setIsOpen(false)}>
-                Get Started
-              </Link>
-            </Button>
-          </div>
-        </motion.div>
+              <div className="px-4 py-6 space-y-4">
+                {navigation.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <Link
+                      to={item.href}
+                      className={cn(
+                        "block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 font-inter",
+                        isActive(item.href)
+                          ? "text-primary neon-glow bg-primary/10"
+                          : "text-foreground hover:text-primary hover:shadow-neon-orange hover:bg-primary/5"
+                      )}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <Button variant="glow" className="w-full mt-4 font-orbitron">
+                    Get Started
+                  </Button>
+                </motion.div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.nav>
     </>
   );

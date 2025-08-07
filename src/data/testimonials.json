@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Priya Sharma",
+    "role": "Full Stack Developer",
+    "company": "TCS",
+    "image": "/api/placeholder/150/150",
+    "rating": 5,
+    "text": "IAT Technologies transformed my career completely. The practical approach and industry-relevant curriculum helped me land my dream job at TCS. The instructors are amazing!"
+  },
+  {
+    "id": 2,
+    "name": "Rajesh Kumar",
+    "role": "Data Scientist",
+    "company": "Infosys",
+    "image": "/api/placeholder/150/150",
+    "rating": 5,
+    "text": "The Data Science course was exceptional. Real projects, hands-on experience, and excellent placement support. I got placed at Infosys with a great package!"
+  },
+  {
+    "id": 3,
+    "name": "Anitha Reddy",
+    "role": "Digital Marketing Manager",
+    "company": "Flipkart",
+    "image": "/api/placeholder/150/150",
+    "rating": 5,
+    "text": "Best investment I ever made! The digital marketing course is comprehensive and up-to-date. Now working at Flipkart thanks to IAT Technologies."
+  },
+  {
+    "id": 4,
+    "name": "Vikram Singh",
+    "role": "Cloud Architect",
+    "company": "Amazon",
+    "image": "/api/placeholder/150/150",
+    "rating": 5,
+    "text": "The AWS course at IAT is fantastic. Practical labs, real-world scenarios, and excellent support. Landed a cloud architect role at Amazon!"
+  },
+  {
+    "id": 5,
+    "name": "Meera Patel",
+    "role": "Cybersecurity Analyst",
+    "company": "Microsoft",
+    "image": "/api/placeholder/150/150",
+    "rating": 5,
+    "text": "IAT's cybersecurity program is top-notch. The hands-on approach to ethical hacking and security analysis prepared me perfectly for my role at Microsoft."
+  }
+]

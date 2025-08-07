@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Full Stack Development",
+    "duration": "6 Months",
+    "level": "Beginner to Advanced",
+    "description": "Master modern web development with React, Node.js, and databases. Build real-world projects.",
+    "technologies": ["React", "Node.js", "MongoDB", "Express", "TypeScript"],
+    "price": "₹45,000",
+    "rating": 4.8,
+    "students": 450,
+    "placement": "95%"
+  },
+  {
+    "id": 2,
+    "title": "Data Science & Analytics",
+    "duration": "5 Months",
+    "level": "Intermediate",
+    "description": "Learn Python, machine learning, and data visualization. Work with real datasets.",
+    "technologies": ["Python", "Pandas", "TensorFlow", "Tableau", "SQL"],
+    "price": "₹40,000",
+    "rating": 4.7,
+    "students": 320,
+    "placement": "88%"
+  },
+  {
+    "id": 3,
+    "title": "Digital Marketing",
+    "duration": "3 Months",
+    "level": "Beginner",
+    "description": "Complete digital marketing course covering SEO, SEM, social media, and analytics.",
+    "technologies": ["Google Ads", "Facebook Ads", "SEO", "Analytics", "Content Marketing"],
+    "price": "₹25,000",
+    "rating": 4.6,
+    "students": 280,
+    "placement": "85%"
+  },
+  {
+    "id": 4,
+    "title": "Cloud Computing (AWS)",
+    "duration": "4 Months",
+    "level": "Intermediate",
+    "description": "Master AWS cloud services, DevOps practices, and infrastructure management.",
+    "technologies": ["AWS", "Docker", "Kubernetes", "Jenkins", "Terraform"],
+    "price": "₹35,000",
+    "rating": 4.9,
+    "students": 200,
+    "placement": "92%"
+  },
+  {
+    "id": 5,
+    "title": "Cybersecurity",
+    "duration": "6 Months",
+    "level": "Advanced",
+    "description": "Comprehensive cybersecurity training covering ethical hacking and security analysis.",
+    "technologies": ["Kali Linux", "Penetration Testing", "Network Security", "SIEM", "Compliance"],
+    "price": "₹50,000",
+    "rating": 4.8,
+    "students": 150,
+    "placement": "90%"
+  },
+  {
+    "id": 6,
+    "title": "Mobile App Development",
+    "duration": "5 Months",
+    "level": "Intermediate",
+    "description": "Build iOS and Android apps using React Native and native development approaches.",
+    "technologies": ["React Native", "Flutter", "Swift", "Kotlin", "Firebase"],
+    "price": "₹42,000",
+    "rating": 4.7,
+    "students": 180,
+    "placement": "87%"
+  }
+]

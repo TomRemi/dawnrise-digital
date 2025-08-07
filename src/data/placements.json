@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "studentName": "Arjun Mehta",
+    "course": "Full Stack Development",
+    "company": "Google",
+    "package": "₹12 LPA",
+    "image": "/api/placeholder/200/200",
+    "logo": "/api/placeholder/100/50"
+  },
+  {
+    "id": 2,
+    "studentName": "Sneha Iyer",
+    "course": "Data Science",
+    "company": "Microsoft",
+    "package": "₹15 LPA",
+    "image": "/api/placeholder/200/200",
+    "logo": "/api/placeholder/100/50"
+  },
+  {
+    "id": 3,
+    "studentName": "Rahul Gupta",
+    "course": "Cloud Computing",
+    "company": "Amazon",
+    "package": "₹14 LPA",
+    "image": "/api/placeholder/200/200",
+    "logo": "/api/placeholder/100/50"
+  },
+  {
+    "id": 4,
+    "studentName": "Kavya Nair",
+    "course": "Digital Marketing",
+    "company": "Facebook",
+    "package": "₹10 LPA",
+    "image": "/api/placeholder/200/200",
+    "logo": "/api/placeholder/100/50"
+  },
+  {
+    "id": 5,
+    "studentName": "Aditya Sharma",
+    "course": "Cybersecurity",
+    "company": "IBM",
+    "package": "₹13 LPA",
+    "image": "/api/placeholder/200/200",
+    "logo": "/api/placeholder/100/50"
+  },
+  {
+    "id": 6,
+    "studentName": "Pooja Reddy",
+    "course": "Mobile Development",
+    "company": "Netflix",
+    "package": "₹11 LPA",
+    "image": "/api/placeholder/200/200",
+    "logo": "/api/placeholder/100/50"
+  }
+]
